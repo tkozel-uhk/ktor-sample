@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- bootstrap link -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>SeznamOsob</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Seznam osob</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Email</th>
+            <th>Operace</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="o : ${osoby}">
+            <td th:text="${o.jmeno}"></td>
+            <td th:text="${o.prijmeni}"></td>
+            <td th:text="${o.email}"></td>
+            <td>
+                <a th:href="@{osoby/{id}(id=${o.id})}" class="btn btn-primary">E</a>
+                <a th:href="@{osoby/{id}/delete(id=${o.id})}" class="btn btn-danger">X</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{osoby/add}" class="btn btn-success">Přidat</a>
+</div>
+</body>
+</html>
