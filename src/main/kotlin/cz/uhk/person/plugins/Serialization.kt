@@ -1,6 +1,5 @@
 package cz.uhk.person.plugins
 
-import cz.uhk.person.data.PersonRepository
 import cz.uhk.person.data.personRepository
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

@@ -9,9 +9,9 @@ import kotlinx.serialization.Serializable
 class Osoba(var id: Long, var jmeno: String, var prijmeni: String, var email: String)
 
 /**
- * In memory repozitář pro práci s osobami
+ * In memory repozitář pro práci s osobami (singleton)
  */
-class PersonRepository() {
+object personRepository {
     private val persons = mutableListOf<Osoba>()
 
     init {
@@ -46,5 +46,3 @@ class PersonRepository() {
         }
     }
 }
-
-val personRepository = PersonRepository()
