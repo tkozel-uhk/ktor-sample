@@ -21,6 +21,9 @@ fun Application.configureTemplating() {
         })
     }
     routing {
+        get("/") {
+            call.respond(ThymeleafContent("index", mapOf()))  //rozcestník
+        }
         get("/html/osoby") {
             call.respond(ThymeleafContent("osoby", mapOf("osoby" to personRepository.getAll())))
         }
@@ -53,4 +56,3 @@ fun Application.configureTemplating() {
     }
 }
 
-data class ThymeleafUser(val id: Int, val name: String)

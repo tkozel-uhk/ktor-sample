@@ -17,10 +17,10 @@ fun Application.configureSerialization() {
         json()
     }
     routing {
-        get("/json/osoby") {
+        get("/rest/osoby") {
             call.respond(personRepository.getAll())
         }
-        get("/json/osoby/{id}") {
+        get("/rest/osoby/{id}") {
             val id = call.parameters.getOrFail("id").toLong()
             val osoba = personRepository.getById(id) ?: throw NotFoundException()
             call.respond(osoba)
